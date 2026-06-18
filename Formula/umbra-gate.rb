@@ -2,6 +2,11 @@ class UmbraGate < Formula
   desc "Local-first LLM gateway with dashboard and provider routing"
   homepage "https://github.com/jachy-h/umbra-gate"
   version "0.1.0"
+  license "MIT"
+
+  head "https://github.com/jachy-h/umbra-gate.git", branch: "main"
+
+  depends_on "go" => :build, head: true
 
   on_macos do
     if Hardware::CPU.arm?
@@ -14,6 +19,12 @@ class UmbraGate < Formula
   end
 
   def install
+    if build.head?
+      system "go", "build", *std_go_args(output: bin/"umbra-gate"), "."
+      pkgshare.install "config.example.yaml"
+      return
+    end
+
     bin.install "personal-ai-router" => "umbra-gate"
     pkgshare.install "config.example.yaml"
   end
@@ -31,6 +42,7 @@ class UmbraGate < Formula
   end
 
   test do
-    assert_match "flag provided but not defined", shell_output("#{bin}/umbra-gate --help", 1)
+    output = shell_output("#{bin}/umbra-gate --help", 1)
+    assert_match "flag provided but not defined", output
   end
 end
