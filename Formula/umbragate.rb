@@ -1,16 +1,16 @@
 class Umbragate < Formula
   desc "Local-first LLM gateway with dashboard and provider routing"
   homepage "https://github.com/jachy-h/umbra-gate"
-  version "0.3.2"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/jachy-h/umbra-gate/releases/download/v0.3.2/umbragate_Darwin_arm64.tar.gz"
-      sha256 "24c03307ac709591e823bf24cf976d44408048e06f4943e17397855b87df52f8"
+      url "https://github.com/jachy-h/umbra-gate/releases/download/v0.4.0/umbragate_Darwin_arm64.tar.gz"
+      sha256 "5c351df52bfb3faf09441bff29c3fa08bbc81e01b5a4abedbbc3e51b5b95d4b0"
     else
-      url "https://github.com/jachy-h/umbra-gate/releases/download/v0.3.2/umbragate_Darwin_x86_64.tar.gz"
-      sha256 "859bd15e2ac0ba0b0e8e125b85c31cad3c25184ed31fe8d1ffbc0937b6030d22"
+      url "https://github.com/jachy-h/umbra-gate/releases/download/v0.4.0/umbragate_Darwin_x86_64.tar.gz"
+      sha256 "c9f89182cad30691bb83aa0f0791a4b97edfb773458c6af7c231ba4319259fed"
     end
   end
 
