@@ -20,7 +20,7 @@ class Umbragate < Formula
   end
 
   service do
-    run [opt_bin/"umbragate"]
+    run [opt_bin/"umbragate", "run"]
     keep_alive true
     log_path var/"log/umbragate.log"
     error_log_path var/"log/umbragate.log"
@@ -35,13 +35,15 @@ class Umbragate < Formula
         ~/.umbragate/
 
       Quick start:
-        umbragate
-        umbragate
+        umbragate start
+
+      Foreground mode:
+        umbragate run
 
       Background mode:
         brew services start umbragate
         # or
-        umbragate -d
+        umbragate start
     EOS
   end
 
